@@ -191,48 +191,164 @@
   .timeline-item p.detail{color:var(--ink-soft); font-size:14px;}
 
   /* ===== PROJECTS ===== */
-  .project-single{
-  border:1px solid var(--line);
-  background:#fff;
-  border-radius:var(--radius);
-  padding:32px;
-}
-.project-single-body{margin-bottom:24px;}
-.project-single-body h3{font-size:20px; margin-bottom:10px;}
-.project-single-body p{color:var(--ink-soft); font-size:15px;}
-
-.project-photos{
-  display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:12px;
-}
-.project-photos img{
-  width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-}
-
-@media (max-width:760px){
-  .project-photos{grid-template-columns:repeat(2, 1fr);}
-}
-  /* ===== SKILLS ===== */
-  .skills-cols{
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:32px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Chenuri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#1a0e2e;
+    --navy-900:#2a1650;
+    --navy-800:#3d2170;
+    --navy-700:#4f2d8f;
+    --accent:#c084fc;
+    --accent-dim:#9333ea;
+    --paper:#f6f5f8;
+    --paper-dim:#eae6f2;
+    --ink:#2a1650;
+    --ink-soft:#5c5270;
+    --line: rgba(42,22,80,0.12);
+    --radius: 2px;
   }
-  .skills-cols h3{
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Inter', sans-serif; line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Source Serif 4', serif; font-weight:600; color:var(--navy-900);}
+  a{color:var(--accent-dim); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:800px; margin:0 auto; padding:0 32px;}
+
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,245,248,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:16px; padding-bottom:16px; max-width:960px;
+  }
+  .nav-mark{
     font-family:'IBM Plex Mono', monospace;
-    font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--ink-soft); font-weight:500; margin-bottom:14px;
+    font-size:13px; letter-spacing:0.06em; color:var(--navy-900); font-weight:500;
   }
-  .pill-list{display:flex; flex-wrap:wrap; gap:8px;}
-  .pill{
-    font-size:13px; padding:6px 12px;
-    background:var(--paper-dim); color:var(--navy-900);
-    border-radius:20px; border:1px solid var(--line);
+  .nav-links{display:flex; gap:28px; list-style:none;}
+  .nav-links a{font-size:14px; color:var(--ink-soft); font-weight:500;}
+  .nav-links a:hover{color:var(--accent-dim); text-decoration:none;}
+
+  .page-head{padding:64px 0 40px;}
+  .page-head .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent-dim); margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .page-head .eyebrow::before{content:""; width:24px; height:1px; background:var(--accent-dim);}
+  .page-head h1{font-size:clamp(30px,4vw,42px);}
+
+  .project-block{
+    padding:44px 0;
+    border-top:1px solid var(--line);
+  }
+  .project-block .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--accent-dim); margin-bottom:8px; display:block;
+  }
+  .project-block h2{font-size:22px; margin-bottom:10px;}
+  .project-block .intro{
+    color:var(--ink-soft); font-size:15px; max-width:65ch; margin-bottom:20px;
+  }
+  .project-block img{
+    width:100%;
+    max-height:420px;
+    object-fit:cover;
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    display:block;
   }
 
+  footer{
+    background:var(--navy-950); color:rgba(246,245,248,0.4);
+    text-align:center; font-size:12px; padding:20px 0; margin-top:40px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  @media (max-width:600px){
+    .nav-links{gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-mark">CHENURI // PORTFOLIO</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">Portfolio</div>
+    <h1>Projects</h1>
+  </div>
+
+  <div class="project-block">
+    <span class="tag">Project 01</span>
+    <h2>Your Project Title</h2>
+    <p class="intro">Short 1–2 sentence intro: what the project was and what you did.</p>
+    <img src="project1.jpg" alt="Project 1 photo">
+  </div>
+
+  <div class="project-block">
+    <span class="tag">Project 02</span>
+    <h2>Your Project Title</h2>
+    <p class="intro">Short 1–2 sentence intro: what the project was and what you did.</p>
+    <img src="project2.jpg" alt="Project 2 photo">
+  </div>
+
+  <div class="project-block">
+    <span class="tag">Project 03</span>
+    <h2>Your Project Title</h2>
+    <p class="intro">Short 1–2 sentence intro: what the project was and what you did.</p>
+    <img src="project3.jpg" alt="Project 3 photo">
+  </div>
+
+  <div class="project-block">
+    <span class="tag">Project 04</span>
+    <h2>Your Project Title</h2>
+    <p class="intro">Short 1–2 sentence intro: what the project was and what you did.</p>
+    <img src="project4.jpg" alt="Project 4 photo">
+  </div>
+
+  <div class="project-block">
+    <span class="tag">Project 05</span>
+    <h2>Your Project Title</h2>
+    <p class="intro">Short 1–2 sentence intro: what the project was and what you did.</p>
+    <img src="project5.jpg" alt="Project 5 photo">
+  </div>
+</div>
+
+<footer>
+  © 2026 CHENURI — BUILT WITH HTML &amp; CSS — HOSTED ON GITHUB PAGES
+</footer>
+
+</body>
+</html>
   /* ===== HOBBIES ===== */
   .hobby-row{display:flex; gap:14px; flex-wrap:wrap;}
   .hobby-chip{
