@@ -347,27 +347,34 @@
   </div>
 </section>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">03</span>
-      <h2>Projects</h2>
-    </div>
-    <div class="project-single">
-      <div class="project-single-body">
-        <span class="tag">Project 01</span>
-        <h3>Your Project Title</h3>
-        <p>Describe what the project was, what you did, and what tools/methods or techniques you used. Keep it to 2–3 sentences.</p>
-      </div>
-      <div class="project-photos">
-        <img src="project1.jpg" alt="Project photo 1">
-        <img src="project2.jpg" alt="Project photo 2">
-        <img src="project3.jpg" alt="Project photo 3">
-        <img src="project4.jpg" alt="Project photo 4">
-      </div>
-    </div>
-  </div>
-</section>
+.project-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+}
+.project-card{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:border-color 0.15s ease, transform 0.15s ease;
+}
+.project-card:hover{border-color:var(--accent-dim); transform:translateY(-2px);}
+.project-img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  display:block;
+}
+.project-card .tag{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--accent-dim); margin:16px 20px 0; display:block;
+}
+.project-card h3{font-size:17px; margin:8px 20px 8px;}
+.project-card p{color:var(--ink-soft); font-size:14px; margin:0 20px 20px;}
+
+@media (max-width:760px){
+  .project-grid{grid-template-columns:1fr;}
+}
 
 <section id="skills">
   <div class="wrap">
