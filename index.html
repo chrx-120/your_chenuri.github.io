@@ -191,26 +191,32 @@
   .timeline-item p.detail{color:var(--ink-soft); font-size:14px;}
 
   /* ===== PROJECTS ===== */
-  .project-grid{
-    display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;
-  }
-  .project-card{
-    border:1px solid var(--line);
-    background:#fff;
-    border-radius:var(--radius);
-    padding:26px;
-    transition:border-color 0.15s ease, transform 0.15s ease;
-  }
-  .project-card:hover{border-color:var(--accent-dim); transform:translateY(-2px);}
-  .project-card .tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--accent-dim); margin-bottom:10px; display:block;
-  }
-  .project-card h3{font-size:17px; margin-bottom:8px;}
-  .project-card p{color:var(--ink-soft); font-size:14px; margin-bottom:14px;}
-  .project-card a{font-size:13px; font-weight:600;}
+  .project-single{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:var(--radius);
+  padding:32px;
+}
+.project-single-body{margin-bottom:24px;}
+.project-single-body h3{font-size:20px; margin-bottom:10px;}
+.project-single-body p{color:var(--ink-soft); font-size:15px;}
 
+.project-photos{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:12px;
+}
+.project-photos img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+}
+
+@media (max-width:760px){
+  .project-photos{grid-template-columns:repeat(2, 1fr);}
+}
   /* ===== SKILLS ===== */
   .skills-cols{
     display:grid; grid-template-columns:repeat(3, 1fr); gap:32px;
@@ -323,16 +329,16 @@
     </div>
     <div class="timeline">
       <div class="timeline-item">
-        <span class="period">20XX — Present</span>
+        <span class="period">2026 Feb— Present</span>
         <h3>Sri Lanka Instititue of Information Technology(SLIIT)</h3>
         <div class="place">BSc(Hons) Degree in Biotechnology Undergraduate</div>
       </div>
       <div class="timeline-item">
-        <span class="period">20XX — 20XX</span>
+        <span class="period">May2023 - May2025</span>
         <h3>Pearson Edexcel International Advanced Levels (English Medium ALs)-2025, Leeds International School Galle</h3>
         <div class="place">Biology - A Chemistry - A Physics - A</div>
-        <div class="timeline-item">
-        <span class="period">20XX — 20XX</span>
+      <div class="timeline-item">
+        <span class="period">May2020 - May2023</span>
         <h3>Pearson Edexcel International GCSE (OLs-English Medium))-2023,Leeds International School-Galle</h3>
         <div class="place">49s,28s,27s</div>
    </div>
@@ -346,30 +352,17 @@
       <span class="section-num">03</span>
       <h2>Projects</h2>
     </div>
-    <div class="project-grid">
-      <div class="project-card">
+    <div class="project-single">
+      <div class="project-single-body">
         <span class="tag">Project 01</span>
-        <h3>Project Title</h3>
-        <p>One or two sentences on what the project is, what you built or investigated, and what tools/methods you used.</p>
-        <a href="#">View project →</a>
+        <h3>Your Project Title</h3>
+        <p>Describe what the project was, what you did, and what tools/methods or techniques you used. Keep it to 2–3 sentences.</p>
       </div>
-      <div class="project-card">
-        <span class="tag">Project 02</span>
-        <h3>Project Title</h3>
-        <p>One or two sentences on what the project is, what you built or investigated, and what tools/methods you used.</p>
-        <a href="#">View project →</a>
-      </div>
-      <div class="project-card">
-        <span class="tag">Project 03</span>
-        <h3>Project Title</h3>
-        <p>One or two sentences on what the project is, what you built or investigated, and what tools/methods you used.</p>
-        <a href="#">View project →</a>
-      </div>
-      <div class="project-card">
-        <span class="tag">Project 04</span>
-        <h3>Project Title</h3>
-        <p>One or two sentences on what the project is, what you built or investigated, and what tools/methods you used.</p>
-        <a href="#">View project →</a>
+      <div class="project-photos">
+        <img src="project1.jpg" alt="Project photo 1">
+        <img src="project2.jpg" alt="Project photo 2">
+        <img src="project3.jpg" alt="Project photo 3">
+        <img src="project4.jpg" alt="Project photo 4">
       </div>
     </div>
   </div>
