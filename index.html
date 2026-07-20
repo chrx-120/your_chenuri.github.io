@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chenuri Baandara | e-Portfolio</title>
+<title>Chenuri Bandara | e-Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -123,9 +123,26 @@
   .hero-photo{
     width:100%; aspect-ratio:1/1;
     border-radius:var(--radius);
-    background:var(--navy-700) url("profile.jpg") center/cover;
+    background:linear-gradient(155deg, var(--navy-700) 0%, var(--navy-800) 100%);
     border:1px solid rgba(192,132,252,0.35);
     box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+    position:relative;
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-photo::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(192,132,252,0.06) 0px, rgba(192,132,252,0.06) 1px, transparent 1px, transparent 22px);
+  }
+  .hero-monogram{
+    position:relative;
+    font-family:'Source Serif 4', serif;
+    font-size:96px;
+    font-weight:600;
+    color:var(--accent);
+    letter-spacing:0.02em;
   }
 
   /* SECTION SCAFFOLD */
@@ -173,23 +190,29 @@
   .timeline-item p.detail{color:var(--ink-soft); font-size:14px;}
 
   /* PROJECTS */
-  .project-block{padding:0 0 44px; border-top:1px solid var(--line); padding-top:44px;}
+  .project-block{
+    display:flex; gap:22px;
+    padding:32px 0; border-top:1px solid var(--line);
+  }
   .project-block:first-child{border-top:none; padding-top:0;}
+  .project-badge{
+    flex-shrink:0;
+    width:44px; height:44px;
+    border-radius:50%;
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px; font-weight:600;
+    color:var(--accent-dim);
+  }
   .project-block .tag{
     font-family:'IBM Plex Mono', monospace;
     font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--accent-dim); margin-bottom:8px; display:block;
+    color:var(--accent-dim); margin-bottom:6px; display:block;
   }
-  .project-block h3{font-size:20px; margin-bottom:10px;}
-  .project-block .intro{color:var(--ink-soft); font-size:15px; max-width:65ch; margin-bottom:20px;}
-  .project-block img{
-    width:100%;
-    max-height:400px;
-    object-fit:cover;
-    border-radius:var(--radius);
-    border:1px solid var(--line);
-    display:block;
-  }
+  .project-block h3{font-size:19px; margin-bottom:8px;}
+  .project-block .intro{color:var(--ink-soft); font-size:15px; max-width:65ch;}
 
   /* SKILLS */
   .skills-cols{display:grid; grid-template-columns:repeat(3, 1fr); gap:32px;}
@@ -229,6 +252,17 @@
     color:var(--ink); background:#fff;
   }
 
+  /* RESUME */
+  .resume-box{
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:16px;
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 32px;
+  }
+  .resume-box p{color:var(--ink-soft); font-size:15px; max-width:44ch;}
+
   /* CONTACT */
   section.contact{background:var(--navy-950); color:var(--paper); border-bottom:none;}
   section.contact .section-num{color:var(--accent);}
@@ -253,6 +287,7 @@
     .about-body{grid-template-columns:1fr;}
     .skills-cols{grid-template-columns:1fr;}
     .nav-links{gap:16px;}
+    .project-block{flex-direction:column; gap:12px;}
   }
 </style>
 </head>
@@ -267,6 +302,7 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#extracurricular">Activities</a></li>
+      <li><a href="#resume">Resume</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -283,7 +319,7 @@
         <a href="resume.pdf" class="btn btn-ghost">Download Résumé (PDF)</a>
       </div>
     </div>
-    <div class="hero-photo"></div>
+    <div class="hero-photo"><span class="hero-monogram">CB</span></div>
   </div>
 </header>
 
@@ -331,7 +367,7 @@
         <span class="period">May 2020 — May 2023</span>
         <h3>Pearson Edexcel International GCSE (English Medium)</h3>
         <div class="place">Leeds International School, Galle</div>
-        <p class="detail">4 subjects 9s,2 subjects 8s,2 subjects 7s</p>
+        <p class="detail">4 subjects at 9s, 2 subjects at 8s, 2 subjects at 7s</p>
       </div>
     </div>
   </div>
@@ -345,39 +381,41 @@
     </div>
 
     <div class="project-block">
-      <span class="tag">Project 01</span>
-      <h3>Volunteered in School Charity Projects, Leeds InternationalSchool Galle - Cancer Ward Karapitiya Hospital, Galle</h3>
-      <p class="intro">Short 1–2 sentence intro: what the project was and what you did.</p>
-      <img src="project1.jpg" alt="Project 1 photo">
+      <div class="project-badge">01</div>
+      <div>
+        <span class="tag">Project</span>
+        <h3>The Future of Biotechnology in Sri Lanka</h3>
+        <p class="intro">Designed a 7-slide PowerPoint presentation exploring biotechnology's applications, emerging technologies, and career opportunities in Sri Lanka, using generative AI to help enhance content and design. Also recorded and edited a 3–5 minute video presentation based on these slides and published it on YouTube.</p>
+      </div>
     </div>
 
     <div class="project-block">
-      <span class="tag">Project 02</span>
-      <h3>Your Project Title</h3>
-      <p class="intro">Short 1–2 sentence intro: what the project was and what you did.</p>
-      <img src="project2.jpg" alt="Project 2 photo">
+      <div class="project-badge">02</div>
+      <div>
+        <span class="tag">Project</span>
+        <h3>White Biotechnology Presentation</h3>
+        <p class="intro">Prepared and delivered a 10-minute group presentation on White Biotechnology, covering its key applications and real-world relevance, structured into an introduction, main body, and conclusion. Strengthened my research, communication, teamwork, and presentation skills while collaborating with my group to present a portion of the content.</p>
+      </div>
     </div>
 
     <div class="project-block">
-      <span class="tag">Project 03</span>
-      <h3>Your Project Title</h3>
-      <p class="intro">Short 1–2 sentence intro: what the project was and what you did.</p>
-      <img src="project3.jpg" alt="Project 3 photo">
+      <div class="project-badge">03</div>
+      <div>
+        <span class="tag">Project</span>
+        <h3>Bioengineered Spider Silk — Group Video Project</h3>
+        <p class="intro">Collaborated on a 10-minute group video introducing bioengineered spider silk, a biomaterial developed through biotechnology to replicate natural spider silk at scale. Presented an individually recorded segment as part of the video, structured around an introduction, content, and conclusion, aimed at explaining the science and real-world relevance of the product to a public audience.</p>
+      </div>
     </div>
 
     <div class="project-block">
-      <span class="tag">Project 04</span>
-      <h3>Your Project Title</h3>
-      <p class="intro">Short 1–2 sentence intro: what the project was and what you did.</p>
-      <img src="project4.jpg" alt="Project 4 photo">
+      <div class="project-badge">04</div>
+      <div>
+        <span class="tag">Project</span>
+        <h3>Round Table Discussion — Human Germline Editing (CRISPR)</h3>
+        <p class="intro">Took part in a group round table discussion on the ethics of Human Germline Editing (CRISPR) — specifically whether the human genome should be permanently altered to eliminate inherited diseases and enhance human traits. Served as Moderator, guiding the discussion through opening statements, moderated crosstalk, and a final policy proposal.</p>
+      </div>
     </div>
 
-    <div class="project-block">
-      <span class="tag">Project 05</span>
-      <h3>Your Project Title</h3>
-      <p class="intro">Short 1–2 sentence intro: what the project was and what you did.</p>
-      <img src="project5.jpg" alt="Project 5 photo">
-    </div>
 
   </div>
 </section>
@@ -428,6 +466,7 @@
       <h2>Leadership &amp; Extra-Curricular Activities</h2>
     </div>
     <ul class="activity-list">
+      <li>Volunteered in School Charity Projects, Leeds International School Galle — Cancer Ward, Karapitiya Hospital, Galle (January 2020 – May 2025)</li>
       <li>Subcommittee Member, Faculty of Humanities and Sciences Student Community – SLIIT</li>
       <li>Junior Prefect, School Prefect Board – 2022/2023</li>
       <li>Senior Prefect, School Prefect Board – 2023/2024</li>
@@ -452,10 +491,23 @@
   </div>
 </section>
 
-<section class="contact" id="contact">
+<section id="resume">
   <div class="wrap">
     <div class="section-head">
       <span class="section-num">07</span>
+      <h2>Resume</h2>
+    </div>
+    <div class="resume-box">
+      <p>Download a copy of my résumé for a full overview of my education, skills, and experience.</p>
+      <a href="resume.pdf" class="btn btn-primary" style="background:var(--accent-dim); color:var(--paper);">Download Résumé (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">08</span>
       <h2>Get in Touch</h2>
     </div>
     <p>Open to internship opportunities and collaborations in biotechnology and related fields. Feel free to reach out.</p>
