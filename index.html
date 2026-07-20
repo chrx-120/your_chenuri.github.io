@@ -120,30 +120,13 @@
   .btn-ghost{border-color:rgba(246,245,248,0.3); color:var(--paper);}
   .btn-ghost:hover{border-color:var(--accent); color:var(--accent); text-decoration:none;}
 
-  .hero-photo{
-    width:100%; aspect-ratio:1/1;
-    border-radius:var(--radius);
-    background:linear-gradient(155deg, var(--navy-700) 0%, var(--navy-800) 100%);
-    border:1px solid rgba(192,132,252,0.35);
-    box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
-    position:relative;
-    overflow:hidden;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .hero-photo::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:
-      repeating-linear-gradient(45deg, rgba(192,132,252,0.06) 0px, rgba(192,132,252,0.06) 1px, transparent 1px, transparent 22px);
-  }
-  .hero-monogram{
-    position:relative;
-    font-family:'Source Serif 4', serif;
-    font-size:96px;
-    font-weight:600;
-    color:var(--accent);
-    letter-spacing:0.02em;
-  }
+.hero-photo{
+  width:100%; aspect-ratio:1/1;
+  border-radius:var(--radius);
+  background:var(--navy-700) url("profile.jpg") center/cover;
+  border:1px solid rgba(192,132,252,0.35);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+}
 
   /* SECTION SCAFFOLD */
   section{padding:76px 0; border-bottom:1px solid var(--line);}
@@ -512,7 +495,7 @@
     </div>
     <p>Open to internship opportunities and collaborations in biotechnology and related fields. Feel free to reach out.</p>
     <div class="contact-links">
-  <a href="mailto:youractualemail@gmail.com">youractualemail@gmail.com</a>
+  <a href="mailto:youractualemail@gmail.com">chenuribandara120@gmail.com</a>
   <a href="resume.pdf">Download Résumé (PDF)</a>
 </div>
   </div>
